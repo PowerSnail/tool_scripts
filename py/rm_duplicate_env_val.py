@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Remove duplicated value in environment variable
 
 This script preserves the ordering of the environment variable.
@@ -12,9 +13,9 @@ Output is printed to standard output, as a single line of
 ":"-delimited string.
 
 Usage:
-    python rm_duplicate_env_val.py
-    python rm_duplicate_env_val.py -h|--help
-    python rm_duplicate_env_val.py -v|--version
+    python3 rm_duplicate_env_val.py
+    python3 rm_duplicate_env_val.py -h|--help
+    python3 rm_duplicate_env_val.py -v|--version
 
 Other options will be ignored.
 """
