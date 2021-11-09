@@ -1,0 +1,7 @@
+[Unit]
+Description=Fiction daily update
+
+[Service]
+Type=exec
+ExecStart={path/to/auto_git_commit}
+WorkingDirectory={path/of/git/dir}
