@@ -76,7 +76,7 @@ def main(specfile: str):
     
     pathlib.Path(specfile + "~").rename(specfile)
 
-    sp.run(["osc", "build"], check=True)
+    sp.run(["osc", "build", "--clean"], check=True)
     sp.run(["osc", "add", f"{name}-{release_info.version}.tar.gz"], check=True)
     sp.run(["osc", "vc", "-m", f"Update to {release_info.version}\n" + release_info.message], check=True)
 
