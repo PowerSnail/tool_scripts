@@ -7,4 +7,4 @@ function download_until_success
     end
 end
 
-zypper dup -l --no-recommends -D && download_until_success && zypper dup -l --no-recommends -y
+download_until_success
