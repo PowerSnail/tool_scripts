@@ -1,0 +1,8 @@
+[Unit]
+Description=Local Web
+
+[Service]
+ExecStart=/home/henry/.local/bin/local-web -a $OPEN_WEATHER_API_KEY
+
+[Install]
+WantedBy=default.target

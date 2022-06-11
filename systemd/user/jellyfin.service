@@ -1,0 +1,8 @@
+[Unit]
+Description=Jellyfin
+
+[Service]
+ExecStart=/home/henry/.local/software/jellyfin/jellyfin
+
+[Install]
+WantedBy=default.target

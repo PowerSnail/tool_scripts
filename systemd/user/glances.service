@@ -1,0 +1,8 @@
+[Unit]
+Description=Glances
+
+[Service]
+ExecStart=/home/henry/.local/bin/glances --webserver --port $GLANCES_PORT
+
+[Install]
+WantedBy=default.target

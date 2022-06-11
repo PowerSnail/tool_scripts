@@ -1,0 +1,5 @@
+[Unit]
+Description=Download Zypper Updates in the background
+
+[Service]
+ExecStart=zypper-dup-download
