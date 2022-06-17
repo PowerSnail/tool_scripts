@@ -1,5 +1,6 @@
 [Unit]
 Description=Download Zypper Updates in the background
+Type=exec
 
 [Service]
 ExecStart=zypper-dup-download
