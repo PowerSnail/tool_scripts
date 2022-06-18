@@ -1,7 +1,7 @@
 [Unit]
 Description=Change Wallpaper Periodically
-Type=exec
 
 [Service]
-ExecStart=python3 $HOME/.local/bin/timed_wallpaper.py $HOME/Pictures/background/
+Type=oneshot
+ExecStart=timed_wallpaper.py $HOME/Pictures/background/
 

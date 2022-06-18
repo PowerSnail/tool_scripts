@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from subprocess import run
 from pathlib import Path
 import typer
@@ -20,7 +22,7 @@ def main(wallpaper_dir: Path):
             hour = int(match.group(1))
             minute = int(match.group(2))
             print(f"{i}")
-            if (hour, minute) < current_time:
+            if (hour, minute) <= current_time:
                 run(["plasma-apply-wallpaperimage", i.absolute()])
                 return
     
