@@ -28,7 +28,8 @@ def get_latest_version(user: str, repo: str) -> Release:
     with requests.get(url) as response:
         response.raise_for_status()
         data = json.loads(response.content)
-        return Release(version=data["name"][1:], message=make_printable(data["body"]))
+        version = data["name"].strip("v")
+        return Release(version=version, message=make_printable(data["body"]))
 
 
 def main(specfile: str):
@@ -45,7 +46,7 @@ def main(specfile: str):
     release_info = get_latest_version(user, repo)
 
     if release_info.version <= content[version_span[0]:version_span[1]]:
-        print("No Update")
+        print(f"No Update: current={content[version_span[0]:version_span[1]]}, latest={release_info.version}")
         return
     
     existing_tar = cwd / f"{name}-{content[version_span[0]:version_span[1]]}.tar.gz"
@@ -68,7 +69,8 @@ def main(specfile: str):
     vendor_path.unlink()
     sp.run(["tar", "cfj", str(vendor_path), "vendor/"], cwd=tmp_d, check=True)
 
-    with open(specfile, "w") as in_file, open(specfile + "~", "w") as file:
+    with open(specfile + "~", "w") as file:
+        content
         file.seek(0)
         file.write(content[:version_span[0]])
         file.write(release_info.version)
